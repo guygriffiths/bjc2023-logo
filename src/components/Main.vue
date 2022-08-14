@@ -78,6 +78,10 @@ function colorElement(element: any, color: string) {
 	element.style('fill', color)
 }
 
+function getImageUrl() {
+	return new URL('../assets/img/bjc-logo-web.svg', import.meta.url).href
+}
+
 function svgLoaded(event: any) {
 	im = d3.select('#logo')
 
@@ -100,7 +104,7 @@ function svgError(error: any) {
 		<div id="image-box" :style="`background-color: ${bgColor}`">
 			<inline-svg
 				id="logo"
-				src="/img/bjc-logo-web.svg"
+				:src="getImageUrl()"
 				width="100%"
 				height="100%"
 				@loaded="svgLoaded($event)"
@@ -183,9 +187,6 @@ function svgError(error: any) {
 			flex-direction: column;
 			padding: 0 1rem 0 1rem;
 			justify-content: flex-end;
-			button {
-				width: 300px;
-			}
 
 			&.color-controls {
 				align-items: flex-end;
@@ -195,6 +196,7 @@ function svgError(error: any) {
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
+				justify-content: flex-end;
 			}
 			.color {
 				border: 1px solid black;
