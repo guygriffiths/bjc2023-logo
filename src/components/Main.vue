@@ -101,12 +101,14 @@ function svgError(error: any) {
 			<inline-svg
 				id="logo"
 				src="/img/bjc-logo-web.svg"
+				width="100%"
+				height="100%"
 				@loaded="svgLoaded($event)"
 				@error="svgError($event)"
 			/>
 		</div>
 		<div id="controls">
-			<div class="col">
+			<div class="col color-controls">
 				<label>Current color:</label>
 				<div
 					class="color current"
@@ -124,8 +126,6 @@ function svgError(error: any) {
 				<button @click="addColor" v-if="!addingColor">Add color</button>
 			</div>
 			<div class="col">
-				<button @click="toggleOutlines">Toggle Outlines</button>
-				<button @click="toggleCaps">Toggle End Caps</button>
 				<label for="bg-color"
 					>Background color
 					<select id="bg-color" v-model="bgColor">
@@ -133,6 +133,8 @@ function svgError(error: any) {
 						<option value="black">Black</option>
 					</select></label
 				>
+				<button @click="toggleOutlines">Toggle Outlines</button>
+				<button @click="toggleCaps">Toggle End Caps</button>
 			</div>
 		</div>
 	</div>
@@ -160,7 +162,7 @@ function svgError(error: any) {
 	justify-content: space-between;
 
 	#image-box {
-		flex: 1 1 0;
+		flex: 1 1 100%;
 		// width: 100%;
 		padding: 2rem;
 		display: flex;
@@ -168,14 +170,8 @@ function svgError(error: any) {
 		margin-bottom: 0.5rem;
 	}
 
-	#logo {
-		flex: 1 1 100%;
-		width: 100%;
-		height: 100%;
-	}
-
 	#controls {
-		flex: 1 1 100%;
+		flex: 1 1 0;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -186,6 +182,14 @@ function svgError(error: any) {
 			display: flex;
 			flex-direction: column;
 			padding: 0 1rem 0 1rem;
+			justify-content: flex-end;
+			button {
+				width: 300px;
+			}
+
+			&.color-controls {
+				align-items: flex-end;
+			}
 
 			#colors {
 				display: flex;
@@ -213,7 +217,7 @@ function svgError(error: any) {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -225,6 +229,5 @@ function svgError(error: any) {
 	.vc-colorpicker--container {
 		border-radius: 1rem !important;
 	}
-
 }
 </style>
