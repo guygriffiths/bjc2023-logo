@@ -4,7 +4,8 @@
   "description": "BJC Logo 2023 Colouring-In",
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "build": "vue-tsc --noEmit --project ./src && vite --config vite.config.ts build"
+    "build": "vue-tsc --noEmit --project ./src && vite --config vite.config.ts build",
+    "deploy": "npm run build && rm -Rf docs && cp -R dist docs && git add docs && git commit -m 'Update website build'"
   },
   "author": "Guy Griffiths",
   "license": "ISC",
