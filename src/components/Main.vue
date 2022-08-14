@@ -167,8 +167,6 @@ function svgError(error: any) {
 
 	#image-box {
 		flex: 1 1 100%;
-		// width: 100%;
-		padding: 2rem;
 		display: flex;
 		border-radius: 5%;
 		margin-bottom: 0.5rem;
