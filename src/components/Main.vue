@@ -145,7 +145,6 @@ function svgError(error: any) {
 	<div id="popup" v-if="addingColor">
 		<color-picker
 			:isWidget="true"
-			pickerType="chrome"
 			useType="pure"
 			:disableAlpha="true"
 			:disableHistory="true"
